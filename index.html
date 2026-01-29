@@ -1,201 +1,143 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Riscaldamento Smart Roma Sud</title>
-    <style>
-        /* RESET BASE */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: sans-serif; background-color: #f8fafc; color: #1e293b; padding-bottom: 120px; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Termostato Smart WiFi Roma Sud | Installazione Rapida</title>
 
-        /* HEADER */
-        header { background: #fff; padding: 15px; text-align: center; border-bottom: 1px solid #ddd; font-weight: 800; color: #0f172a; }
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:system-ui,Arial;background:#f8fafc;color:#0f172a;padding-bottom:110px}
 
-        /* HERO SECTION (FOTO 1 - ROMA) */
-        .hero-container { position: relative; width: 100%; height: 400px; overflow: hidden; }
-        
-        /* Immagine inserita come IMG per garantire la visibilità */
-        .hero-img { 
-            width: 100%; height: 100%; object-fit: cover; 
-            filter: brightness(0.4); /* Scurisce la foto per leggere il testo */
-        }
-        
-        .hero-content { 
-            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); 
-            text-align: center; width: 100%; padding: 20px; color: white;
-        }
+/* HEADER */
+header{
+background:#0f172a;color:#fff;
+padding:14px;text-align:center;font-weight:800;
+letter-spacing:0.5px;font-size:1rem;
+}
 
-        h1 { font-size: 2.2rem; font-weight: 800; line-height: 1.1; margin-bottom: 20px; text-shadow: 0 2px 5px rgba(0,0,0,0.8); }
-        
-        .badge { background: #f36d21; color: white; padding: 10px 20px; border-radius: 10px; display: inline-block; font-weight: bold; }
-        .badge span { display: block; font-size: 0.8rem; text-transform: uppercase; }
-        .badge strong { font-size: 2.5rem; }
+/* HERO */
+.hero{
+position:relative;height:420px;width:100%;overflow:hidden;
+}
+.hero img{
+width:100%;height:100%;object-fit:cover;
+}
+.hero::after{
+content:"";position:absolute;inset:0;
+background:linear-gradient(0deg,rgba(0,0,0,.75),rgba(0,0,0,.35));
+}
+.hero-content{
+position:absolute;inset:0;
+display:flex;flex-direction:column;justify-content:center;align-items:center;
+color:#fff;text-align:center;padding:20px;z-index:2;
+}
+.hero h1{font-size:2.3rem;font-weight:900;margin-bottom:15px;line-height:1.1}
+.hero p{font-size:1rem;max-width:500px;opacity:.95}
 
-        /* CONTENUTO */
-        .container { max-width: 600px; margin: 0 auto; padding: 20px; }
+/* PREZZO BADGE */
+.price{
+background:#f97316;color:#fff;padding:12px 22px;border-radius:12px;
+font-weight:900;font-size:1.8rem;margin-top:15px;
+}
 
-        /* VANTAGGI */
-        .card { background: white; border-radius: 15px; padding: 10px; margin-top: -30px; position: relative; z-index: 10; border: 1px solid #eee; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
-        .item { display: flex; align-items: center; padding: 15px; border-bottom: 1px solid #eee; }
-        .item:last-child { border-bottom: none; }
-        .icon { font-size: 1.5rem; margin-right: 15px; }
-        
-        /* FOTO 2 - APP DI NOTTE */
-        .foto-app { margin-top: 30px; text-align: center; }
-        .foto-app img { width: 100%; border-radius: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
-        .caption { margin-top: 10px; font-weight: bold; color: #555; }
+/* CTA HERO */
+.hero-btn{
+margin-top:20px;
+background:#22c55e;color:#fff;padding:16px 30px;border-radius:40px;
+text-decoration:none;font-weight:900;font-size:1rem;
+box-shadow:0 10px 25px rgba(34,197,94,.4);
+}
 
-        /* FOOTER */
-        footer { text-align: center; padding: 40px 20px; font-size: 0.8rem; color: #999; }
+/* CONTENUTO */
+.container{max-width:640px;margin:auto;padding:20px}
 
-        /* TASTI FISSI */
-        .fixed-bar { 
-            position: fixed; bottom: 20px; left: 20px; right: 20px; 
-            background: #0f172a; border-radius: 50px; padding: 10px; 
-            display: flex; gap: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); z-index: 9999;
-        }
-        .btn { flex: 1; padding: 15px; border-radius: 30px; text-align: center; text-decoration: none; color: white; font-weight: bold; font-size: 0.9rem; }
-        .btn-call { background: rgba(255,255,255,0.2); }
-        .btn-wa { background: #25d366; }
-    </style>
+/* CARD BENEFICI */
+.card{
+background:#fff;border-radius:18px;padding:10px;margin-top:-40px;
+box-shadow:0 8px 20px rgba(0,0,0,.07);border:1px solid #eee;z-index:3;position:relative;
+}
+.item{display:flex;gap:14px;padding:14px;border-bottom:1px solid #eee}
+.item:last-child{border:none}
+.icon{font-size:1.6rem}
+
+/* FOTO APP */
+.app-img{margin-top:30px;text-align:center}
+.app-img img{width:100%;border-radius:18px;box-shadow:0 10px 25px rgba(0,0,0,.12)}
+.app-img div{margin-top:10px;font-weight:700;color:#334155}
+
+/* TRUST */
+.trust{
+background:#fff;margin-top:25px;padding:18px;border-radius:16px;
+font-size:.95rem;line-height:1.5;border:1px solid #eee;
+}
+
+/* FOOTER */
+footer{text-align:center;font-size:.75rem;color:#64748b;padding:25px}
+
+/* FIXED CTA */
+.fixed-bar{
+position:fixed;bottom:15px;left:15px;right:15px;
+background:#0f172a;border-radius:50px;padding:10px;
+display:flex;gap:10px;z-index:9999;
+}
+.btn{
+flex:1;padding:15px;border-radius:40px;text-align:center;
+text-decoration:none;color:#fff;font-weight:900;font-size:.95rem;
+}
+.btn-call{background:rgba(255,255,255,.2)}
+.btn-wa{background:#25d366}
+</style>
 </head>
+
 <body>
 
-    <header>DOMUSTECH ROMA SUD</header>
+<header>DOMUSTECH • Installazione Termostati Smart Roma Sud</header>
 
-    <div class="hero-container">
-        <img src="hero-smart-roma.jpg" alt="Roma Sud" class="hero-img">
-        
-        <div class="hero-content">
-            <h1>Riscaldamento Smart.<br>Controllo Remoto.</h1>
-            <div class="badge">
-                <span>A PARTIRE DA</span>
-                <strong>€59</strong>
-            </div>
-        </div>
-    </div>
+<section class="hero">
+<img src="hero-smart-roma.jpg" alt="Termostato Smart Roma Sud">
+<div class="hero-content">
+<h1>Termostato Smart Wi-Fi<br>Controlla il Riscaldamento da Smartphone</h1>
+<p>Installazione rapida senza opere murarie. Zona Roma Sud (EUR, Ostia, Acilia, Infernetto).</p>
 
-    <div class="container">
-        <div class="card">
-            <div class="item">
-                <div class="icon">🚫</div>
-                <div><b>Senza Opere Murarie</b><br><small>Niente buchi, niente polvere.</small></div>
-            </div>
-            <div class="item">
-                <div class="icon">📱</div>
-                <div><b>Tutto da Smartphone</b><br><small>Accendi ovunque tu sia.</small></div>
-            </div>
-            <div class="item">
-                <div class="icon">📍</div>
-                <div><b>Roma Sud</b><br><small>EUR, Ostia, Acilia, Infernetto.</small></div>
-            </div>
-        </div>
+<div class="price">Da 59€</div>
 
-        <div class="foto-app">
-            <img src="app-control-night.png" alt="App Shelly">
-            <div class="caption">Semplice. Veloce. Sicuro.</div>
-        </div>
-    </div>
+<a href="https://wa.me/393505223388?text=Info%20Termostato%20Smart" class="hero-btn">
+💬 Preventivo Gratuito su WhatsApp
+</a>
+</div>
+</section>
 
-    <footer>
-        DOMUSTECH ROMA SUD<br>
-        Servizio professionale occasionale [cite: 2026-01-12].
-    </footer>
+<div class="container">
 
-    <div class="fixed-bar">
-        <a href="tel:+393505223388" class="btn btn-call">📞 CHIAMA</a>
-        <a href="https://wa.me/393505223388?text=Info%20Riscaldamento" class="btn btn-wa">💬 WHATSAPP</a>
-    </div>
+<div class="card">
+<div class="item"><div class="icon">⚡</div><div><b>Installazione Rapida</b><br>In meno di 1 ora.</div></div>
+<div class="item"><div class="icon">📱</div><div><b>Controllo da App</b><br>Accendi ovunque ti trovi.</div></div>
+<div class="item"><div class="icon">💰</div><div><b>Riduci i Costi</b><br>Solo quando serve.</div></div>
+</div>
 
-</body>
-</html>
+<div class="app-img">
+<img src="app-control-night.png" alt="App Termostato Smart">
+<div>Gestione semplice e sicura del riscaldamento</div>
+</div>
 
-        /* CONTENITORE CENTRALE */
-        .container { max-width: 600px; margin: 0 auto; padding: 20px; }
+<div class="trust">
+<b>Perché scegliere DomusTech</b><br>
+✔ Tecnico con esperienza in domotica<br>
+✔ Supporto post installazione<br>
+✔ Pagamento semplice e fattura su richiesta
+</div>
 
-        /* LISTA VANTAGGI */
-        .box-vantaggi { background: white; border-radius: 20px; padding: 10px; margin-top: -30px; position: relative; z-index: 10; border: 1px solid #e2e8f0; box-shadow: 0 10px 25px rgba(0,0,0,0.05); }
-        .riga { display: flex; align-items: center; padding: 15px; border-bottom: 1px solid #f1f5f9; }
-        .riga:last-child { border-bottom: none; }
-        .icona { font-size: 1.5rem; margin-right: 15px; width: 30px; text-align: center; }
-        .testo b { display: block; font-size: 1rem; color: #0f172a; }
-        .testo p { font-size: 0.9rem; color: #64748b; }
+</div>
 
-        /* SECONDA FOTO: IMMAGINE DIMOSTRATIVA */
-        .box-foto { margin-top: 30px; text-align: center; }
-        .box-foto img { 
-            width: 100%; 
-            height: auto; 
-            border-radius: 20px; 
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1); 
-            display: block; /* Importante per evitare spazi vuoti */
-        }
-        .didascalia { margin-top: 10px; font-weight: 700; color: #475569; }
+<footer>
+© 2026 DomusTech Roma Sud – Servizio tecnico indipendente
+</footer>
 
-        /* FOOTER */
-        footer { text-align: center; padding: 30px 20px; font-size: 0.75rem; color: #94a3b8; }
-
-        /* BOTTONI FISSI IN BASSO */
-        .barra-fissa { 
-            position: fixed; bottom: 20px; left: 20px; right: 20px; 
-            background: #0f172a; border-radius: 100px; 
-            padding: 8px; display: flex; gap: 10px; 
-            box-shadow: 0 15px 30px rgba(0,0,0,0.4); z-index: 9999;
-        }
-        .btn { 
-            flex: 1; padding: 15px; border-radius: 50px; 
-            text-align: center; text-decoration: none; 
-            color: white; font-weight: 800; font-size: 0.9rem; 
-            display: flex; align-items: center; justify-content: center; 
-        }
-        .btn-tel { background: rgba(255,255,255,0.15); }
-        .btn-wa { background: #25d366; }
-    </style>
-</head>
-<body>
-
-    <header>DOMUSTECH ROMA SUD</header>
-
-    <section class="hero">
-        <h1>Riscaldamento Wi-Fi.<br>Controllo Remoto.</h1>
-        <div class="prezzo-box">
-            <span>A PARTIRE DA</span>
-            <strong>€59</strong>
-        </div>
-    </section>
-
-    <div class="container">
-        <div class="box-vantaggi">
-            <div class="riga">
-                <div class="icona">🛠️</div>
-                <div class="testo"><b>Senza Opere Murarie</b><p>Installazione pulita, niente buchi.</p></div>
-            </div>
-            <div class="riga">
-                <div class="icona">📱</div>
-                <div class="testo"><b>Tutto da Smartphone</b><p>Accendi e spegni ovunque tu sia.</p></div>
-            </div>
-            <div class="riga">
-                <div class="icona">📍</div>
-                <div class="testo"><b>Roma Sud e Litorale</b><p>EUR, Ostia, Acilia, Infernetto.</p></div>
-            </div>
-        </div>
-
-        <div class="box-foto">
-            <img src="app-control-night.png" alt="App Controllo Riscaldamento">
-            <div class="didascalia">Semplice. Veloce. Garantito.</div>
-        </div>
-    </div>
-
-    <footer>
-        DOMUSTECH ROMA SUD<br>
-        Servizio professionale occasionale [cite: 2026-01-12].
-    </footer>
-
-    <div class="barra-fissa">
-        <a href="tel:+393505223388" class="btn btn-tel">📞 CHIAMA</a>
-        <a href="https://wa.me/393505223388?text=Info%20Riscaldamento" class="btn btn-wa">💬 WHATSAPP</a>
-    </div>
+<div class="fixed-bar">
+<a href="tel:+393505223388" class="btn btn-call">📞 Chiama</a>
+<a href="https://wa.me/393505223388?text=Info%20Termostato%20Smart" class="btn btn-wa">💬 WhatsApp</a>
+</div>
 
 </body>
 </html>
