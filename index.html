@@ -3,93 +3,108 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Riscaldamento Smart Roma Sud - Domustech</title>
+    <title>Riscaldamento Smart Roma Sud</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
-        :root { --accent: #f36d21; --navy: #0f172a; --gray: #f1f5f9; --text: #334155; }
+        :root { 
+            --accent: #f36d21; 
+            --navy: #0f172a;   
+            --gray: #f8fafc;   
+            --text: #334155;
+        }
+        
         * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
         body { margin: 0; font-family: 'Inter', sans-serif; background: var(--gray); color: var(--text); padding-bottom: 120px; }
 
-        header { background: white; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #e2e8f0; }
-        .logo { font-weight: 800; color: var(--navy); font-size: 1.2rem; }
+        header { background: white; padding: 20px; text-align: center; border-bottom: 1px solid #e2e8f0; }
+        .logo { font-weight: 800; color: var(--navy); letter-spacing: -1px; font-size: 1.2rem; }
 
-        /* Hero con i nomi file originali */
         .hero { 
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url('hero-smart-roma.png');
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('hero-smart-roma.png');
             background-size: cover; background-position: center;
             background-color: var(--navy); 
-            color: white; padding: 60px 20px; text-align: center;
+            color: white; padding: 80px 20px; text-align: center;
         }
-        h1 { font-size: 2.2rem; margin: 0; font-weight: 800; letter-spacing: -1px; }
-        .price-hero { margin-top: 25px; display: inline-block; background: var(--accent); padding: 10px 25px; border-radius: 15px; }
-        .price-value { font-size: 2.8rem; font-weight: 800; }
+        h1 { font-size: 2.2rem; margin: 0; line-height: 1.1; font-weight: 800; letter-spacing: -1px; }
+        
+        .price-tag { margin: 30px 0; }
+        .p-label { font-size: 0.9rem; font-weight: 600; color: var(--accent); text-transform: uppercase; }
+        .p-value { font-size: 4rem; font-weight: 800; line-height: 1; }
+        .p-value span { font-size: 1.5rem; vertical-align: top; }
 
-        .container { max-width: 600px; margin: auto; padding: 0 20px; }
+        .container { max-width: 500px; margin: auto; padding: 0 20px; }
 
-        .benefits { background: white; padding: 30px 20px; margin-top: -30px; border-radius: 25px 25px 0 0; }
-        .b-item { display: flex; gap: 15px; margin-bottom: 20px; align-items: center; }
-        .b-icon { font-size: 1.5rem; background: #fff1e6; padding: 10px; border-radius: 10px; }
+        .features { background: white; border-radius: 24px; padding: 10px; border: 1px solid #e2e8f0; margin-top: -30px; box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+        .item { display: flex; align-items: center; padding: 20px; border-bottom: 1px solid #f1f5f9; }
+        .item:last-child { border-bottom: none; }
+        .icon { font-size: 1.5rem; margin-right: 20px; }
+        .item-text b { display: block; color: var(--navy); font-size: 1.1rem; }
+        .item-text span { font-size: 0.9rem; color: #64748b; }
 
-        .showcase { padding: 30px 20px; text-align: center; }
-        .showcase img { width: 100%; border-radius: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); margin-bottom: 20px; }
+        .image-box { padding: 40px 20px; text-align: center; }
+        .image-box img { width: 100%; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
 
-        .sticky-nav { 
-            position: fixed; bottom: 15px; left: 5%; width: 90%;
-            background: white; border-radius: 50px; 
-            display: flex; padding: 8px; gap: 8px; 
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2); z-index: 9999;
-            border: 1px solid #eee;
+        .sticky-bar { 
+            position: fixed; bottom: 20px; left: 20px; right: 20px; 
+            background: var(--navy); border-radius: 20px; 
+            display: flex; padding: 10px; gap: 10px; 
+            box-shadow: 0 20px 40px rgba(15, 23, 42, 0.3); z-index: 9999;
         }
-        .nav-btn { flex: 1; padding: 15px; border-radius: 40px; text-decoration: none; text-align: center; font-weight: 800; color: white; display: flex; align-items: center; justify-content: center; gap: 5px; }
+        .btn { 
+            flex: 1; padding: 18px; border-radius: 15px; text-decoration: none; 
+            text-align: center; font-weight: 700; font-size: 0.9rem; color: white;
+            display: flex; align-items: center; justify-content: center; gap: 8px;
+        }
+        .btn-call { background: rgba(255,255,255,0.1); }
         .btn-wa { background: #25d366; }
-        .btn-call { background: var(--navy); }
 
-        footer { text-align: center; padding: 20px; font-size: 0.7rem; color: #94a3b8; }
+        footer { text-align: center; padding: 40px 20px; color: #94a3b8; font-size: 0.8rem; }
     </style>
 </head>
 <body>
 
 <header>
-    <div class="logo">DOMUSTECH</div>
-    <div style="font-weight: 600; font-size: 0.8rem; color: var(--accent)">ROMA SUD</div>
+    <div class="logo">DOMUSTECH ROMA SUD</div>
 </header>
 
 <section class="hero">
-    <h1>Caldaia Smart.<br>Controllo Remoto.</h1>
-    <div class="price-hero">
-        <div style="font-size: 0.8rem; text-transform: uppercase">A partire da</div>
-        <div class="price-value">€59</div>
+    <h1>Riscaldamento Wi-Fi.<br>Controllo Remoto.</h1>
+    <div class="price-tag">
+        <div class="p-label">A PARTIRE DA</div>
+        <div class="p-value"><span>€</span>59</div>
     </div>
 </section>
 
-<section class="benefits">
-    <div class="container">
-        <div class="b-item">
-            <div class="b-icon">🔌</div>
-            <div><strong>Senza Opere Murarie</strong><br>Installazione pulita in 40 minuti.</div>
+<div class="container">
+    <div class="features">
+        <div class="item">
+            <div class="icon">🏠</div>
+            <div class="item-text"><b>Nessuna Opera Muraria</b><span>Niente buchi o polvere in casa.</span></div>
         </div>
-        <div class="b-item">
-            <div class="b-icon">📱</div>
-            <div><strong>App Smartphone</strong><br>Accendi e spegni ovunque tu sia.</div>
+        <div class="item">
+            <div class="icon">📱</div>
+            <div class="item-text"><b>Tutto da Smartphone</b><span>Accendi e spegni ovunque tu sia.</span></div>
+        </div>
+        <div class="item">
+            <div class="icon">📍</div>
+            <div class="item-text"><b>Zona Roma Sud</b><span>Operativo a EUR, Ostia, Acilia e dintorni.</span></div>
         </div>
     </div>
-</section>
 
-<section class="showcase">
-    <div class="container">
-        <img src="app-control-night.png" alt="Controllo riscaldamento Shelly">
-        <p>Gestione semplice e intuitiva per tutta la famiglia.</p>
+    <div class="image-box">
+        <img src="app-control-night.png" alt="Controllo remoto">
+        <p style="margin-top: 20px; font-weight: 600;">Semplice, veloce e garantito.</p>
     </div>
-</section>
+</div>
 
 <footer>
-    Servizio tecnico occasionale professionale [cite: 2026-01-12].<br>
-    © 2026 Domustech Roma Sud
+    © 2026 Domustech Roma Sud <br>
+    Servizio tecnico professionale occasionale.
 </footer>
 
-<div class="sticky-nav">
-    <a href="tel:+393505223388" class="nav-btn btn-call">📞 CHIAMA</a>
-    <a href="https://wa.me/393505223388?text=Info%20Riscaldamento%20Smart" class="nav-btn btn-wa">💬 WHATSAPP</a>
+<div class="sticky-bar">
+    <a href="tel:+393505223388" class="btn btn-call">CHIAMA</a>
+    <a href="https://wa.me/393505223388?text=Informazioni%20riscaldamento%20smart" class="btn btn-wa">WHATSAPP</a>
 </div>
 
 </body>
