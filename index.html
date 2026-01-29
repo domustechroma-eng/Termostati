@@ -3,306 +3,113 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Riscaldamento Wi-Fi Roma Sud - Comanda da Remoto</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+    <title>Riscaldamento Smart Roma Sud</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
         :root { 
-            --primary: #e67e22; 
-            --dark: #1e293b; 
-            --light: #f8fafc; 
-            --success: #16a34a; 
-            --call: #1e40af;
+            --accent: #f36d21; /* Arancio Calore */
+            --navy: #0f172a;   /* Blu Professionale */
+            --gray: #f8fafc;   /* Sfondo */
+            --text: #334155;
         }
         
         * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-        body { margin: 0; font-family: 'Poppins', sans-serif; background: var(--light); color: var(--dark); line-height: 1.4; padding-bottom: 80px; }
+        body { margin: 0; font-family: 'Inter', sans-serif; background: var(--gray); color: var(--text); padding-bottom: 100px; }
 
-        /* Banner d'urgenza */
-        .top-banner { background: var(--dark); color: white; text-align: center; padding: 10px; font-weight: 600; font-size: 13px; }
+        /* Header Minimale */
+        header { background: white; padding: 20px; text-align: center; border-bottom: 1px solid #e2e8f0; }
+        .logo { font-weight: 800; color: var(--navy); letter-spacing: -1px; font-size: 1.2rem; }
 
-        /* Hero Section */
-        .hero { background: white; padding: 40px 20px; text-align: center; border-bottom: 5px solid var(--primary); }
-        .hero h1 { font-size: 2rem; margin: 0; line-height: 1.1; font-weight: 800; }
-        .hero p { font-size: 1.1rem; margin: 15px 0; color: #64748b; }
-        
-        /* Prezzo Protagonista */
-        .price-box { 
-            display: inline-block; 
-            background: #fff3e0; 
-            border: 2px dashed var(--primary); 
-            padding: 15px 30px; 
-            border-radius: 15px; 
-            margin: 20px 0; 
+        /* Hero pulita */
+        .hero { background: white; padding: 60px 20px; text-align: center; }
+        h1 { font-size: 2.2rem; color: var(--navy); margin: 0; line-height: 1.1; font-weight: 800; letter-spacing: -1px; }
+        .subtitle { font-size: 1.1rem; margin: 20px auto; max-width: 300px; color: var(--text); }
+
+        /* Prezzo Elegante */
+        .price-hero { margin: 30px 0; }
+        .price-label { font-size: 0.8rem; font-weight: 600; color: var(--accent); text-transform: uppercase; letter-spacing: 1px; }
+        .price-value { font-size: 3.5rem; font-weight: 800; color: var(--navy); line-height: 1; }
+        .price-value span { font-size: 1.5rem; vertical-align: top; margin-right: 2px; }
+
+        .container { max-width: 500px; margin: auto; padding: 0 20px; }
+
+        /* Lista Pulita */
+        .feature-list { background: white; border-radius: 24px; padding: 10px; border: 1px solid #e2e8f0; margin-top: -20px; }
+        .item { display: flex; align-items: center; padding: 20px; border-bottom: 1px solid #f1f5f9; }
+        .item:last-child { border-bottom: none; }
+        .icon { font-size: 1.5rem; margin-right: 20px; }
+        .item-text b { display: block; color: var(--navy); font-size: 1rem; }
+        .item-text span { font-size: 0.9rem; color: #64748b; }
+
+        /* Sticky Bar Integrata */
+        .sticky-nav { 
+            position: fixed; bottom: 20px; left: 20px; right: 20px; 
+            background: var(--navy); border-radius: 20px; 
+            display: flex; padding: 10px; gap: 10px; 
+            box-shadow: 0 20px 40px rgba(15, 23, 42, 0.3); z-index: 9999;
         }
-        .price-box span { display: block; font-size: 0.9rem; color: var(--primary); font-weight: 600; }
-        .price-box strong { font-size: 2.2rem; color: var(--primary); }
-
-        .container { max-width: 600px; margin: auto; padding: 20px; }
-
-        /* Vantaggi Semplici */
-        .points { margin: 30px 0; }
-        .point-item { 
-            background: white; 
-            padding: 20px; 
-            border-radius: 15px; 
-            margin-bottom: 15px; 
-            display: flex; 
-            align-items: center; 
-            gap: 15px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
-            border: 1px solid #e2e8f0;
+        .nav-btn { 
+            flex: 1; padding: 16px; border-radius: 15px; text-decoration: none; 
+            text-align: center; font-weight: 700; font-size: 0.9rem; color: white;
+            display: flex; align-items: center; justify-content: center; gap: 8px;
         }
-        .point-item strong { color: var(--primary); font-size: 1.1rem; }
+        .btn-wa { background: #25d366; }
+        .btn-call { background: rgba(255,255,255,0.1); }
 
-        /* Sticky Bar (I pulsanti che seguono la pagina) */
-        .sticky-bar { 
-            position: fixed; 
-            bottom: 0; 
-            left: 0; 
-            right: 0; 
-            background: white; 
-            display: flex; 
-            padding: 12px; 
-            gap: 10px; 
-            box-shadow: 0 -5px 20px rgba(0,0,0,0.1); 
-            z-index: 2000; 
-        }
-        .s-btn { 
-            flex: 1; 
-            padding: 16px; 
-            border-radius: 12px; 
-            text-decoration: none; 
-            text-align: center; 
-            font-weight: 800; 
-            font-size: 1rem; 
-            color: white; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            gap: 8px;
-        }
-        .btn-call { background: var(--call); }
-        .btn-wa { background: var(--success); }
-
-        footer { text-align: center; padding: 40px 20px 20px; color: #94a3b8; font-size: 0.8rem; }
+        footer { text-align: center; padding: 40px 20px; color: #94a3b8; font-size: 0.75rem; }
     </style>
 </head>
 <body>
 
-<div class="top-banner">🏠 TRASFORMA LA TUA CASA IN SMART HOME</div>
+<header>
+    <div class="logo">DOMUSTECH ROMA SUD</div>
+</header>
 
 <section class="hero">
-    <h1>Riscaldamento Wi-Fi<br>da Smartphone</h1>
+    <h1>Caldaia Smart.<br>Controllo Remoto.</h1>
+    <p class="subtitle">Gestisci il riscaldamento dal tuo smartphone in pochi minuti.</p>
     
-    <div class="price-box">
-        <span>A PARTIRE DA</span>
-        <strong>59€</strong>
-    </div>
-
-    <p>Trova casa calda al tuo arrivo e risparmia subito.<br><strong>Senza opere murarie.</strong></p>
-</section>
-
-<div class="container">
-    
-    <div class="points">
-        <div class="point-item">
-            <span>📱</span>
-            <div><strong>Controllo Remoto</strong><br>Accendi e spegni ovunque tu sia.</div>
-        </div>
-        <div class="point-item">
-            <span>⚡</span>
-            <div><strong>Installazione Rapida</strong><br>Pronto in meno di un'ora.</div>
-        </div>
-        <div class="point-item">
-            <span>💰</span>
-            <div><strong>Risparmio Reale</strong><br>Meno sprechi, bollette più leggere.</div>
-        </div>
-        <div class="point-item">
-            <span>📍</span>
-            <div><strong>Zona Roma Sud</strong><br>EUR, Ostia, Acilia e dintorni.</div>
-        </div>
-    </div>
-
-    <h3 style="text-align:center; color:#64748b;">Chiamami per trovare la soluzione adatta a te</h3>
-
-</div>
-
-<footer>
-    <strong>DOMUSTECH ROMA SUD</strong><br>
-    Servizio tecnico professionale occasionale [cite: 2026-01-12].<br>
-    Tel: 350 522 3388 | Roma
-</footer>
-
-<div class="sticky-bar">
-    <a href="tel:+393505223388" class="s-btn btn-call">📞 CHIAMA ORA</a>
-    <a href="https://wa.me/393505223388?text=Ciao,%20vorrei%20informazioni%20sul%20riscaldamento%20smart" class="s-btn btn-wa">💬 WHATSAPP</a>
-</div>
-
-</body>
-</html>
-        .price-box span { display: block; font-size: 0.9rem; color: var(--primary); font-weight: 600; }
-        .price-box strong { font-size: 2.2rem; color: var(--primary); }
-
-        .container { max-width: 600px; margin: auto; padding: 20px; }
-
-        /* Vantaggi Semplici */
-        .points { margin: 30px 0; }
-        .point-item { 
-            background: white; 
-            padding: 20px; 
-            border-radius: 15px; 
-            margin-bottom: 15px; 
-            display: flex; 
-            align-items: center; 
-            gap: 15px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
-            border: 1px solid #e2e8f0;
-        }
-        .point-item strong { color: var(--primary); font-size: 1.1rem; }
-
-        /* Sticky Bar (I pulsanti che seguono la pagina) */
-        .sticky-bar { 
-            position: fixed; 
-            bottom: 0; 
-            left: 0; 
-            right: 0; 
-            background: white; 
-            display: flex; 
-            padding: 12px; 
-            gap: 10px; 
-            box-shadow: 0 -5px 20px rgba(0,0,0,0.1); 
-            z-index: 2000; 
-        }
-        .s-btn { 
-            flex: 1; 
-            padding: 16px; 
-            border-radius: 12px; 
-            text-decoration: none; 
-            text-align: center; 
-            font-weight: 800; 
-            font-size: 1rem; 
-            color: white; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            gap: 8px;
-        }
-        .btn-call { background: var(--call); }
-        .btn-wa { background: var(--success); }
-
-        footer { text-align: center; padding: 40px 20px 20px; color: #94a3b8; font-size: 0.8rem; }
-    </style>
-</head>
-<body>
-
-<div class="top-banner">🏠 TRASFORMA LA TUA CASA IN SMART HOME</div>
-
-<section class="hero">
-    <h1>Riscaldamento Wi-Fi<br>da Smartphone</h1>
-    
-    <div class="price-box">
-        <span>A PARTIRE DA</span>
-        <strong>59€</strong>
-    </div>
-
-    <p>Trova casa calda al tuo arrivo e risparmia subito.<br><strong>Senza opere murarie.</strong></p>
-</section>
-
-<div class="container">
-    
-    <div class="points">
-        <div class="point-item">
-            <span>📱</span>
-            <div><strong>Controllo Remoto</strong><br>Accendi e spegni ovunque tu sia.</div>
-        </div>
-        <div class="point-item">
-            <span>⚡</span>
-            <div><strong>Installazione Rapida</strong><br>Pronto in meno di un'ora.</div>
-        </div>
-        <div class="point-item">
-            <span>💰</span>
-            <div><strong>Risparmio Reale</strong><br>Meno sprechi, bollette più leggere.</div>
-        </div>
-        <div class="point-item">
-            <span>📍</span>
-            <div><strong>Zona Roma Sud</strong><br>EUR, Ostia, Acilia e dintorni.</div>
-        </div>
-    </div>
-
-    <h3 style="text-align:center; color:#64748b;">Chiamami per trovare la soluzione adatta a te</h3>
-
-</div>
-
-<footer>
-    <strong>DOMUSTECH ROMA SUD</strong><br>
-    Servizio tecnico professionale occasionale [cite: 2026-01-12].<br>
-    Tel: 350 522 3388 | Roma
-</footer>
-
-<div class="sticky-bar">
-    <a href="tel:+393505223388" class="s-btn btn-call">📞 CHIAMA ORA</a>
-    <a href="https://wa.me/393505223388?text=Ciao,%20vorrei%20informazioni%20sul%20riscaldamento%20smart" class="s-btn btn-wa">💬 WHATSAPP</a>
-</div>
-
-</body>
-</html>
-
-<div class="top-bar">🔥 RISPARMIA FINO AL 30% SUL RISCALDAMENTO</div>
-
-<section class="hero">
-    <h1>Caldaia Smart: <br><span>Comanda da Remoto</span></h1>
-    <div class="price-tag">Da soli 59€</div>
-    <p>Sostituzione e configurazione Wi-Fi in 40 minuti.<br><strong>Zero opere murarie. Zero polvere.</strong></p>
-    
-    <div class="container">
-        <a href="https://wa.me/393505223388?text=Vorrei%20informazioni%20sul%20termostato%20smart" class="cta-btn">💬 CHIEDI PREVENTIVO WHATSAPP</a>
+    <div class="price-hero">
+        <div class="price-label">A partire da</div>
+        <div class="price-value"><span>€</span>59</div>
     </div>
 </section>
 
 <div class="container">
-    <div class="highlight-box">
-        <strong>Come funziona?</strong> Trasformiamo la tua vecchia caldaia in un sistema intelligente. Potrai accendere il riscaldamento mentre torni dal lavoro all'EUR o da Ostia, trovando casa già calda.
-    </div>
-
-    <h2 style="text-align:center">Scegli la tua soluzione</h2>
-    
-    <div class="solution-grid">
-        <div class="card">
-            <h3>Entry Level</h3>
-            <p>Ideale per chi vuole spendere poco.</p>
-            <ul>
-                <li>Modulo Wi-Fi invisibile</li>
-                <li>Comando On/Off da App</li>
-                <li>Compatibile Alexa/Google</li>
-            </ul>
-            <strong>Solo 59€ + installazione</strong>
+    <div class="feature-list">
+        <div class="item">
+            <div class="icon">🔌</div>
+            <div class="item-text">
+                <b>Nessuna Opera Muraria</b>
+                <span>Sostituzione rapida senza buchi o polvere.</span>
+            </div>
         </div>
-
-        <div class="card">
-            <h3>Professional</h3>
-            <p>Il massimo del design e risparmio.</p>
-            <ul>
-                <li>Display Touch retroilluminato</li>
-                <li>Programmazione intelligente</li>
-                <li>Geofencing (si accende quando arrivi)</li>
-            </ul>
-            <strong>Netatmo o Nest</strong>
+        <div class="item">
+            <div class="icon">📱</div>
+            <div class="item-text">
+                <b>App su Misura</b>
+                <span>Accendi e spegni anche quando sei fuori casa.</span>
+            </div>
         </div>
-    </div>
-
-    <div style="margin-top:40px; text-align:center">
-        <h3>Perché chiamarmi?</h3>
-        <p>📍 Operativo a Roma Sud (EUR, Acilia, Ostia, Laurentina)<br>
-        ⚡ Intervento rapido e pulito<br>
-        🛡️ Spiegazione completa dell'App inclusa</p>
+        <div class="item">
+            <div class="icon">📍</div>
+            <div class="item-text">
+                <b>Servizio a Roma Sud</b>
+                <span>Specializzato in zona EUR, Ostia e Acilia.</span>
+            </div>
+        </div>
     </div>
 </div>
 
 <footer>
-    <strong>DOMUSTECH ROMA SUD</strong><br>
-    Servizi tecnici occasionali per il risparmio energetico.<br>
-    © 2026 - Installazioni Smart Home
+    © 2026 Domustech Roma Sud <br>
+    Servizio tecnico professionale occasionale [cite: 2026-01-12].
 </footer>
+
+<div class="sticky-nav">
+    <a href="tel:+393505223388" class="nav-btn btn-call">CHIAMA</a>
+    <a href="https://wa.me/393505223388?text=Informazioni%20termostato%20smart" class="nav-btn btn-wa">WHATSAPP</a>
+</div>
 
 </body>
 </html>
