@@ -4,108 +4,90 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Riscaldamento Smart Roma Sud</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
-        :root { 
-            --accent: #f36d21; 
-            --navy: #0f172a;   
-            --gray: #f8fafc;   
-            --text: #334155;
-        }
+        * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; margin: 0; padding: 0; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #f8fafc; color: #334155; padding-bottom: 100px; }
         
-        * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-        body { margin: 0; font-family: 'Inter', sans-serif; background: var(--gray); color: var(--text); padding-bottom: 120px; }
-
-        header { background: white; padding: 20px; text-align: center; border-bottom: 1px solid #e2e8f0; }
-        .logo { font-weight: 800; color: var(--navy); letter-spacing: -1px; font-size: 1.2rem; }
-
+        /* Sezione Alta */
         .hero { 
-            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('hero-smart-roma.png');
-            background-size: cover; background-position: center;
-            background-color: var(--navy); 
-            color: white; padding: 80px 20px; text-align: center;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), url('hero-smart-roma.png');
+            background-size: cover; background-position: center; background-color: #0f172a;
+            color: white; padding: 60px 20px; text-align: center;
         }
-        h1 { font-size: 2.2rem; margin: 0; line-height: 1.1; font-weight: 800; letter-spacing: -1px; }
-        
-        .price-tag { margin: 30px 0; }
-        .p-label { font-size: 0.9rem; font-weight: 600; color: var(--accent); text-transform: uppercase; }
-        .p-value { font-size: 4rem; font-weight: 800; line-height: 1; }
-        .p-value span { font-size: 1.5rem; vertical-align: top; }
+        .hero h1 { font-size: 2.2rem; font-weight: 800; line-height: 1.1; margin-bottom: 20px; }
+        .price { background: #f36d21; display: inline-block; padding: 15px 25px; border-radius: 15px; }
+        .price span { font-size: 0.9rem; display: block; font-weight: 600; }
+        .price strong { font-size: 3rem; }
 
-        .container { max-width: 500px; margin: auto; padding: 0 20px; }
+        /* Contenuti */
+        .container { max-width: 500px; margin: -30px auto 0; padding: 0 20px; }
+        .box { background: white; border-radius: 20px; padding: 25px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 1px solid #e2e8f0; }
+        .feature { display: flex; align-items: center; margin-bottom: 20px; }
+        .feature:last-child { margin-bottom: 0; }
+        .icon { font-size: 1.5rem; margin-right: 15px; }
+        .text b { display: block; color: #0f172a; font-size: 1.1rem; }
+        .text p { font-size: 0.9rem; color: #64748b; }
 
-        .features { background: white; border-radius: 24px; padding: 10px; border: 1px solid #e2e8f0; margin-top: -30px; box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
-        .item { display: flex; align-items: center; padding: 20px; border-bottom: 1px solid #f1f5f9; }
-        .item:last-child { border-bottom: none; }
-        .icon { font-size: 1.5rem; margin-right: 20px; }
-        .item-text b { display: block; color: var(--navy); font-size: 1.1rem; }
-        .item-text span { font-size: 0.9rem; color: #64748b; }
+        .img-box { margin: 30px 0; text-align: center; }
+        .img-box img { width: 100%; border-radius: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
 
-        .image-box { padding: 40px 20px; text-align: center; }
-        .image-box img { width: 100%; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
-
+        /* Barra Contatti Fissa */
         .sticky-bar { 
             position: fixed; bottom: 20px; left: 20px; right: 20px; 
-            background: var(--navy); border-radius: 20px; 
+            background: #0f172a; border-radius: 20px; 
             display: flex; padding: 10px; gap: 10px; 
-            box-shadow: 0 20px 40px rgba(15, 23, 42, 0.3); z-index: 9999;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3); z-index: 999;
         }
         .btn { 
             flex: 1; padding: 18px; border-radius: 15px; text-decoration: none; 
             text-align: center; font-weight: 700; font-size: 0.9rem; color: white;
-            display: flex; align-items: center; justify-content: center; gap: 8px;
         }
         .btn-call { background: rgba(255,255,255,0.1); }
         .btn-wa { background: #25d366; }
 
-        footer { text-align: center; padding: 40px 20px; color: #94a3b8; font-size: 0.8rem; }
+        footer { text-align: center; padding: 30px; color: #94a3b8; font-size: 0.8rem; }
     </style>
 </head>
 <body>
 
-<header>
-    <div class="logo">DOMUSTECH ROMA SUD</div>
-</header>
-
-<section class="hero">
-    <h1>Riscaldamento Wi-Fi.<br>Controllo Remoto.</h1>
-    <div class="price-tag">
-        <div class="p-label">A PARTIRE DA</div>
-        <div class="p-value"><span>€</span>59</div>
-    </div>
-</section>
-
-<div class="container">
-    <div class="features">
-        <div class="item">
-            <div class="icon">🏠</div>
-            <div class="item-text"><b>Nessuna Opera Muraria</b><span>Niente buchi o polvere in casa.</span></div>
+    <section class="hero">
+        <h1>Caldaia Smart.<br>Controllo Remoto.</h1>
+        <div class="price">
+            <span>A PARTIRE DA</span>
+            <strong>€59</strong>
         </div>
-        <div class="item">
-            <div class="icon">📱</div>
-            <div class="item-text"><b>Tutto da Smartphone</b><span>Accendi e spegni ovunque tu sia.</span></div>
+    </section>
+
+    <div class="container">
+        <div class="box">
+            <div class="feature">
+                <span class="icon">🏠</span>
+                <div class="text"><b>Senza Opere Murarie</b><p>Niente polvere o buchi in casa.</p></div>
+            </div>
+            <div class="feature">
+                <span class="icon">📱</span>
+                <div class="text"><b>Tutto da Smartphone</b><p>Accendi e spegni dove vuoi.</p></div>
+            </div>
+            <div class="feature">
+                <span class="icon">📍</span>
+                <div class="text"><b>Zona Roma Sud</b><p>EUR, Ostia, Acilia e dintorni.</p></div>
+            </div>
         </div>
-        <div class="item">
-            <div class="icon">📍</div>
-            <div class="item-text"><b>Zona Roma Sud</b><span>Operativo a EUR, Ostia, Acilia e dintorni.</span></div>
+
+        <div class="img-box">
+            <img src="app-control-night.png" alt="App Riscaldamento">
         </div>
     </div>
 
-    <div class="image-box">
-        <img src="app-control-night.png" alt="Controllo remoto">
-        <p style="margin-top: 20px; font-weight: 600;">Semplice, veloce e garantito.</p>
+    <footer>
+        DOMUSTECH ROMA SUD<br>
+        Servizio tecnico professionale occasionale [cite: 2026-01-12].
+    </footer>
+
+    <div class="sticky-bar">
+        <a href="tel:+393505223388" class="btn btn-call">CHIAMA</a>
+        <a href="https://wa.me/393505223388?text=Info%20riscaldamento%20smart" class="btn btn-wa">WHATSAPP</a>
     </div>
-</div>
-
-<footer>
-    © 2026 Domustech Roma Sud <br>
-    Servizio tecnico professionale occasionale.
-</footer>
-
-<div class="sticky-bar">
-    <a href="tel:+393505223388" class="btn btn-call">CHIAMA</a>
-    <a href="https://wa.me/393505223388?text=Informazioni%20riscaldamento%20smart" class="btn btn-wa">WHATSAPP</a>
-</div>
 
 </body>
 </html>
