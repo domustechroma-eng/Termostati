@@ -2,38 +2,144 @@
 <html lang="it">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Riscaldamento Smart Roma Sud - Risparmia in Bolletta</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Riscaldamento Wi-Fi Roma Sud - Comanda da Remoto</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
-        :root { --primary: #e67e22; --dark: #2c3e50; --light: #f9f9f9; --success: #27ae60; }
-        body { font-family: 'Poppins', sans-serif; margin: 0; background: var(--light); color: var(--dark); line-height: 1.6; }
-        .top-bar { background: var(--success); color: white; text-align: center; padding: 10px; font-weight: 800; font-size: 14px; }
+        :root { 
+            --primary: #e67e22; 
+            --dark: #1e293b; 
+            --light: #f8fafc; 
+            --success: #16a34a; 
+            --call: #1e40af;
+        }
         
+        * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        body { margin: 0; font-family: 'Poppins', sans-serif; background: var(--light); color: var(--dark); line-height: 1.4; padding-bottom: 80px; }
+
+        /* Banner d'urgenza */
+        .top-banner { background: var(--dark); color: white; text-align: center; padding: 10px; font-weight: 600; font-size: 13px; }
+
         /* Hero Section */
         .hero { background: white; padding: 40px 20px; text-align: center; border-bottom: 5px solid var(--primary); }
-        .hero h1 { font-size: 2.2rem; color: var(--dark); margin: 0; line-height: 1.2; }
-        .hero span { color: var(--primary); }
-        .price-tag { background: var(--primary); color: white; display: inline-block; padding: 10px 20px; border-radius: 50px; font-size: 1.5rem; font-weight: 800; margin: 20px 0; }
+        .hero h1 { font-size: 2rem; margin: 0; line-height: 1.1; font-weight: 800; }
+        .hero p { font-size: 1.1rem; margin: 15px 0; color: #64748b; }
         
-        .container { max-width: 800px; margin: auto; padding: 20px; }
-        
-        /* Box Soluzioni */
-        .solution-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 30px; }
-        .card { background: white; padding: 20px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid #eee; text-align: center; }
-        .card h3 { color: var(--primary); margin-top: 0; }
-        .card ul { text-align: left; padding: 0; list-style: none; font-size: 0.9rem; }
-        .card li:before { content: "✅ "; }
+        /* Prezzo Protagonista */
+        .price-box { 
+            display: inline-block; 
+            background: #fff3e0; 
+            border: 2px dashed var(--primary); 
+            padding: 15px 30px; 
+            border-radius: 15px; 
+            margin: 20px 0; 
+        }
+        .price-box span { display: block; font-size: 0.9rem; color: var(--primary); font-weight: 600; }
+        .price-box strong { font-size: 2.2rem; color: var(--primary); }
 
-        /* No Opere Murarie */
-        .highlight-box { background: #fff3e0; border-left: 5px solid var(--primary); padding: 20px; margin: 30px 0; border-radius: 0 15px 15px 0; }
+        .container { max-width: 600px; margin: auto; padding: 20px; }
 
-        .cta-btn { display: block; background: var(--success); color: white; text-align: center; padding: 20px; border-radius: 12px; text-decoration: none; font-weight: 800; font-size: 1.2rem; margin-top: 20px; box-shadow: 0 10px 20px rgba(39,174,96,0.3); }
-        
-        footer { text-align: center; padding: 40px; color: #999; font-size: 0.8rem; }
+        /* Vantaggi Semplici */
+        .points { margin: 30px 0; }
+        .point-item { 
+            background: white; 
+            padding: 20px; 
+            border-radius: 15px; 
+            margin-bottom: 15px; 
+            display: flex; 
+            align-items: center; 
+            gap: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            border: 1px solid #e2e8f0;
+        }
+        .point-item strong { color: var(--primary); font-size: 1.1rem; }
+
+        /* Sticky Bar (I pulsanti che seguono la pagina) */
+        .sticky-bar { 
+            position: fixed; 
+            bottom: 0; 
+            left: 0; 
+            right: 0; 
+            background: white; 
+            display: flex; 
+            padding: 12px; 
+            gap: 10px; 
+            box-shadow: 0 -5px 20px rgba(0,0,0,0.1); 
+            z-index: 2000; 
+        }
+        .s-btn { 
+            flex: 1; 
+            padding: 16px; 
+            border-radius: 12px; 
+            text-decoration: none; 
+            text-align: center; 
+            font-weight: 800; 
+            font-size: 1rem; 
+            color: white; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            gap: 8px;
+        }
+        .btn-call { background: var(--call); }
+        .btn-wa { background: var(--success); }
+
+        footer { text-align: center; padding: 40px 20px 20px; color: #94a3b8; font-size: 0.8rem; }
     </style>
 </head>
 <body>
+
+<div class="top-banner">🏠 TRASFORMA LA TUA CASA IN SMART HOME</div>
+
+<section class="hero">
+    <h1>Riscaldamento Wi-Fi<br>da Smartphone</h1>
+    
+    <div class="price-box">
+        <span>A PARTIRE DA</span>
+        <strong>59€</strong>
+    </div>
+
+    <p>Trova casa calda al tuo arrivo e risparmia subito.<br><strong>Senza opere murarie.</strong></p>
+</section>
+
+<div class="container">
+    
+    <div class="points">
+        <div class="point-item">
+            <span>📱</span>
+            <div><strong>Controllo Remoto</strong><br>Accendi e spegni ovunque tu sia.</div>
+        </div>
+        <div class="point-item">
+            <span>⚡</span>
+            <div><strong>Installazione Rapida</strong><br>Pronto in meno di un'ora.</div>
+        </div>
+        <div class="point-item">
+            <span>💰</span>
+            <div><strong>Risparmio Reale</strong><br>Meno sprechi, bollette più leggere.</div>
+        </div>
+        <div class="point-item">
+            <span>📍</span>
+            <div><strong>Zona Roma Sud</strong><br>EUR, Ostia, Acilia e dintorni.</div>
+        </div>
+    </div>
+
+    <h3 style="text-align:center; color:#64748b;">Chiamami per trovare la soluzione adatta a te</h3>
+
+</div>
+
+<footer>
+    <strong>DOMUSTECH ROMA SUD</strong><br>
+    Servizio tecnico professionale occasionale [cite: 2026-01-12].<br>
+    Tel: 350 522 3388 | Roma
+</footer>
+
+<div class="sticky-bar">
+    <a href="tel:+393505223388" class="s-btn btn-call">📞 CHIAMA ORA</a>
+    <a href="https://wa.me/393505223388?text=Ciao,%20vorrei%20informazioni%20sul%20riscaldamento%20smart" class="s-btn btn-wa">💬 WHATSAPP</a>
+</div>
+
+</body>
+</html>
 
 <div class="top-bar">🔥 RISPARMIA FINO AL 30% SUL RISCALDAMENTO</div>
 
