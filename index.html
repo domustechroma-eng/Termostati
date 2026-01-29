@@ -3,112 +3,195 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Riscaldamento Smart Roma Sud</title>
+    <title>Riscaldamento Smart Roma Sud - Domustech</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
         :root { 
             --accent: #f36d21; /* Arancio Calore */
             --navy: #0f172a;   /* Blu Professionale */
-            --gray: #f8fafc;   /* Sfondo */
+            --gray: #f1f5f9;   /* Sfondo */
             --text: #334155;
         }
         
         * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-        body { margin: 0; font-family: 'Inter', sans-serif; background: var(--gray); color: var(--text); padding-bottom: 100px; }
+        body { margin: 0; font-family: 'Inter', sans-serif; background: var(--gray); color: var(--text); padding-bottom: 120px; }
 
-        /* Header Minimale */
-        header { background: white; padding: 20px; text-align: center; border-bottom: 1px solid #e2e8f0; }
+        /* Header */
+        header { background: white; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #e2e8f0; }
         .logo { font-weight: 800; color: var(--navy); letter-spacing: -1px; font-size: 1.2rem; }
+        .contact-link { color: var(--accent); text-decoration: none; font-weight: 600; font-size: 0.9rem; }
 
-        /* Hero pulita */
-        .hero { background: white; padding: 60px 20px; text-align: center; }
-        h1 { font-size: 2.2rem; color: var(--navy); margin: 0; line-height: 1.1; font-weight: 800; letter-spacing: -1px; }
-        .subtitle { font-size: 1.1rem; margin: 20px auto; max-width: 300px; color: var(--text); }
+        /* Hero Section con Foto di Sfondo */
+        .hero { 
+            background: linear-gradient(rgba(15, 23, 42, 0.6), rgba(15, 23, 42, 0.8)), url('hero-smart-roma.png');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+        h1 { font-size: 2.5rem; margin: 0; line-height: 1.1; font-weight: 800; letter-spacing: -1px; }
+        .subtitle { font-size: 1.2rem; margin: 20px auto; max-width: 600px; opacity: 0.9; }
+        
+        /* Prezzo in evidenza */
+        .price-hero { margin-top: 30px; display: inline-block; background: rgba(255,255,255,0.1); padding: 15px 30px; border-radius: 20px; backdrop-filter: blur(5px); border: 1px solid rgba(255,255,255,0.2); }
+        .price-label { font-size: 0.9rem; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 1px; }
+        .price-value { font-size: 3rem; font-weight: 800; line-height: 1; }
+        .price-value span { font-size: 1.5rem; vertical-align: top; }
 
-        /* Prezzo Elegante */
-        .price-hero { margin: 30px 0; }
-        .price-label { font-size: 0.8rem; font-weight: 600; color: var(--accent); text-transform: uppercase; letter-spacing: 1px; }
-        .price-value { font-size: 3.5rem; font-weight: 800; color: var(--navy); line-height: 1; }
-        .price-value span { font-size: 1.5rem; vertical-align: top; margin-right: 2px; }
+        .container { max-width: 700px; margin: auto; padding: 0 20px; }
 
-        .container { max-width: 500px; margin: auto; padding: 0 20px; }
+        /* Sezione Vantaggi Arricchita */
+        .benefits-section { background: white; padding: 40px 20px; margin-top: -40px; border-radius: 30px 30px 0 0; position: relative; }
+        .section-title { text-align: center; color: var(--navy); font-size: 1.5rem; margin-bottom: 30px; }
+        
+        .benefit-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+        .benefit-item { display: flex; align-items: flex-start; gap: 15px; }
+        .icon-box { background: #fff1e6; color: var(--accent); padding: 12px; border-radius: 12px; font-size: 1.5rem; }
+        .benefit-text h3 { margin: 0 0 5px; color: var(--navy); font-size: 1.1rem; }
+        .benefit-text p { margin: 0; font-size: 0.95rem; color: #64748b; line-height: 1.5; }
 
-        /* Lista Pulita */
-        .feature-list { background: white; border-radius: 24px; padding: 10px; border: 1px solid #e2e8f0; margin-top: -20px; }
-        .item { display: flex; align-items: center; padding: 20px; border-bottom: 1px solid #f1f5f9; }
-        .item:last-child { border-bottom: none; }
-        .icon { font-size: 1.5rem; margin-right: 20px; }
-        .item-text b { display: block; color: var(--navy); font-size: 1rem; }
-        .item-text span { font-size: 0.9rem; color: #64748b; }
+        /* Nuova Sezione "Come Funziona" con Foto */
+        .how-it-works { padding: 40px 20px; background: var(--gray); }
+        .step-container { display: flex; flex-wrap: wrap; gap: 30px; align-items: center; }
+        .step-image { flex: 1 1 300px; }
+        .step-image img { width: 100%; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .step-content { flex: 1 1 300px; }
+        .step-list { list-style: none; padding: 0; counter-reset: step-counter; }
+        .step-list li { position: relative; padding-left: 50px; margin-bottom: 25px; }
+        .step-list li::before {
+            content: counter(step-counter);
+            counter-increment: step-counter;
+            position: absolute; left: 0; top: 0;
+            width: 35px; height: 35px;
+            background: var(--navy); color: white;
+            border-radius: 50%; font-weight: 800;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .step-list strong { display: block; color: var(--navy); font-size: 1.1rem; margin-bottom: 5px; }
 
-        /* Sticky Bar Integrata */
+        /* Footer Arricchito */
+        footer { background: var(--navy); color: white; padding: 40px 20px 100px; text-align: center; }
+        .footer-info p { margin: 5px 0; opacity: 0.8; font-size: 0.9rem; }
+        .footer-disclaimer { margin-top: 30px; font-size: 0.75rem; opacity: 0.5; }
+
+        /* Sticky Bar a "Pillola" */
         .sticky-nav { 
-            position: fixed; bottom: 20px; left: 20px; right: 20px; 
-            background: var(--navy); border-radius: 20px; 
-            display: flex; padding: 10px; gap: 10px; 
-            box-shadow: 0 20px 40px rgba(15, 23, 42, 0.3); z-index: 9999;
+            position: fixed; bottom: 25px; left: 50%; transform: translateX(-50%);
+            width: 90%; max-width: 450px;
+            background: white; border-radius: 100px; 
+            display: flex; padding: 8px; gap: 10px; 
+            box-shadow: 0 15px 35px rgba(15, 23, 42, 0.2); z-index: 9999;
+            border: 1px solid #e2e8f0;
         }
         .nav-btn { 
-            flex: 1; padding: 16px; border-radius: 15px; text-decoration: none; 
-            text-align: center; font-weight: 700; font-size: 0.9rem; color: white;
-            display: flex; align-items: center; justify-content: center; gap: 8px;
+            flex: 1; padding: 14px; border-radius: 50px; text-decoration: none; 
+            text-align: center; font-weight: 700; font-size: 1rem; color: white;
+            display: flex; align-items: center; justify-content: center; gap: 8px; transition: transform 0.2s;
         }
-        .btn-wa { background: #25d366; }
-        .btn-call { background: rgba(255,255,255,0.1); }
-
-        footer { text-align: center; padding: 40px 20px; color: #94a3b8; font-size: 0.75rem; }
+        .nav-btn:active { transform: scale(0.96); }
+        .btn-wa { background: #25d366; color: white; }
+        .btn-call { background: var(--navy); color: white; }
     </style>
 </head>
 <body>
 
 <header>
-    <div class="logo">DOMUSTECH ROMA SUD</div>
+    <div class="logo">DOMUSTECH</div>
+    <a href="tel:+393505223388" class="contact-link">📞 350 522 3388</a>
 </header>
 
 <section class="hero">
-    <h1>Caldaia Smart.<br>Controllo Remoto.</h1>
-    <p class="subtitle">Gestisci il riscaldamento dal tuo smartphone in pochi minuti.</p>
-    
-    <div class="price-hero">
-        <div class="price-label">A partire da</div>
-        <div class="price-value"><span>€</span>59</div>
+    <div class="container">
+        <h1>Il tuo Riscaldamento,<br>Intelligente.</h1>
+        <p class="subtitle">Trova la casa calda al tuo arrivo e taglia i costi in bolletta. Gestisci tutto dal telefono, ovunque tu sia.</p>
+        
+        <div class="price-hero">
+            <div class="price-label">Installazione a partire da</div>
+            <div class="price-value"><span>€</span>59</div>
+        </div>
     </div>
 </section>
 
-<div class="container">
-    <div class="feature-list">
-        <div class="item">
-            <div class="icon">🔌</div>
-            <div class="item-text">
-                <b>Nessuna Opera Muraria</b>
-                <span>Sostituzione rapida senza buchi o polvere.</span>
+<section class="benefits-section">
+    <div class="container">
+        <h2 class="section-title">Perché passare allo Smart?</h2>
+        <div class="benefit-grid">
+            <div class="benefit-item">
+                <div class="icon-box">✨</div>
+                <div class="benefit-text">
+                    <h3>Nessuna Opera Muraria</h3>
+                    <p>Sostituiamo il tuo vecchio termostato in meno di un'ora, senza sporcare o rompere muri.</p>
+                </div>
             </div>
-        </div>
-        <div class="item">
-            <div class="icon">📱</div>
-            <div class="item-text">
-                <b>App su Misura</b>
-                <span>Accendi e spegni anche quando sei fuori casa.</span>
+            <div class="benefit-item">
+                <div class="icon-box">📱</div>
+                <div class="benefit-text">
+                    <h3>Controllo Totale via App</h3>
+                    <p>Accendi, spegni e programma i termosifoni dal tuo smartphone, anche dall'ufficio.</p>
+                </div>
             </div>
-        </div>
-        <div class="item">
-            <div class="icon">📍</div>
-            <div class="item-text">
-                <b>Servizio a Roma Sud</b>
-                <span>Specializzato in zona EUR, Ostia e Acilia.</span>
+            <div class="benefit-item">
+                <div class="icon-box">📉</div>
+                <div class="benefit-text">
+                    <h3>Risparmio Immediato</h3>
+                    <p>Evita sprechi scaldando casa solo quando serve davvero. La bolletta ringrazia.</p>
+                </div>
+            </div>
+            <div class="benefit-item">
+                <div class="icon-box">📍</div>
+                <div class="benefit-text">
+                    <h3>Servizio Locale Roma Sud</h3>
+                    <p>Interventi rapidi all'EUR, Ostia, Acilia, Infernetto e zone limitrofe.</p>
+                </div>
             </div>
         </div>
     </div>
-</div>
+</section>
+
+<section class="how-it-works">
+    <div class="container">
+        <h2 class="section-title">Come Funziona? Semplice.</h2>
+        <div class="step-container">
+            <div class="step-image">
+                <img src="app-control-night.png" alt="Controllo riscaldamento da app Shelly">
+            </div>
+            <div class="step-content">
+                <ol class="step-list">
+                    <li>
+                        <strong>Sopralluogo & Installazione</strong>
+                        <p>Vengo a casa tua, verifico l'impianto e installo il modulo smart invisibile o il termostato di design.</p>
+                    </li>
+                    <li>
+                        <strong>Configurazione App</strong>
+                        <p>Colleghiamo tutto al tuo Wi-Fi e configuro l'app sul tuo telefono, spiegandoti ogni funzione.</p>
+                    </li>
+                    <li>
+                        <strong>Goditi il Comfort</strong>
+                        <p>È tutto pronto. Inizia a gestire il clima di casa con un tocco, ovunque ti trovi.</p>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</section>
 
 <footer>
-    © 2026 Domustech Roma Sud <br>
-    Servizio tecnico professionale occasionale [cite: 2026-01-12].
+    <div class="container">
+        <div class="logo" style="color:white; margin-bottom: 20px;">DOMUSTECH ROMA SUD</div>
+        <div class="footer-info">
+            <p>Tecnico specializzato in Smart Home e Automazioni.</p>
+            <p>Operativo a Roma Sud e Litorale.</p>
+        </div>
+        <div class="footer-disclaimer">
+            © 2026 Domustech. Servizio tecnico professionale prestato in regime occasionale [cite: 2026-01-12].
+        </div>
+    </div>
 </footer>
 
 <div class="sticky-nav">
-    <a href="tel:+393505223388" class="nav-btn btn-call">CHIAMA</a>
-    <a href="https://wa.me/393505223388?text=Informazioni%20termostato%20smart" class="nav-btn btn-wa">WHATSAPP</a>
+    <a href="tel:+393505223388" class="nav-btn btn-call">📞 CHIAMA</a>
+    <a href="https://wa.me/393505223388?text=Ciao,%20vorrei%20info%20sul%20riscaldamento%20smart" class="nav-btn btn-wa">💬 WHATSAPP</a>
 </div>
 
 </body>
