@@ -2,157 +2,191 @@
 <html lang="it">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Installazione Termostato WiFi Roma | Risparmio fino al 30%</title>
-<meta name="description" content="Installazione termostato WiFi a Roma. Controlla il riscaldamento da smartphone e riduci la bolletta fino al 30%. Preventivo gratuito.">
-<meta name="keywords" content="installazione termostato wifi roma, termostato smart roma, elettricista termostato wifi">
-
-<!-- SEO Structured Data -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "name": "DomusTech Roma",
-  "image": "logo.png",
-  "telephone": "+393XXXXXXXXX",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Roma",
-    "addressCountry": "IT"
-  },
-  "url": "https://domustechroma-eng.github.io/Termostati/"
-}
-</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Termostato Smart WiFi Roma Sud | DomusTech</title>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif;}
-body{background:#f5f7fa;color:#222;line-height:1.6}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:system-ui,Arial;background:#f8fafc;color:#0f172a;padding-bottom:120px}
+
+/* HEADER */
+header{
+background:#0f172a;color:#fff;
+padding:14px;text-align:center;font-weight:800;font-size:1rem;
+}
 
 /* HERO */
 .hero{
-background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url('hero-shelly.jpg') center/cover no-repeat;
-padding:90px 15px;
-text-align:center;
-color:white;
+position:relative;height:420px;width:100%;overflow:hidden;
 }
-.hero h1{font-size:34px;font-weight:700;}
-.hero p{font-size:20px;margin:15px 0;}
-.hero .cta{
-background:#00c853;color:white;padding:15px 30px;border-radius:8px;
-display:inline-block;font-size:20px;text-decoration:none;font-weight:bold;
+.hero img{
+width:100%;height:100%;object-fit:cover;
+filter:brightness(1.25);
+}
+.hero::after{
+content:"";position:absolute;inset:0;
+background:linear-gradient(0deg,rgba(0,0,0,.65),rgba(0,0,0,.25));
+}
+.hero-content{
+position:absolute;inset:0;
+display:flex;flex-direction:column;justify-content:center;align-items:center;
+color:#fff;text-align:center;padding:20px;z-index:2;
+}
+.hero h1{font-size:2.2rem;font-weight:900;margin-bottom:10px}
+.hero p{font-size:1rem;max-width:520px}
+
+.badge{
+background:#22c55e;padding:6px 16px;border-radius:20px;font-weight:800;font-size:.9rem;
+margin-bottom:12px;
 }
 
-/* SECTIONS */
-section{padding:50px 15px;max-width:1100px;margin:auto;}
-h2{text-align:center;margin-bottom:20px;font-size:28px;}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;}
-.card{background:white;padding:20px;border-radius:12px;box-shadow:0 5px 20px rgba(0,0,0,0.07);}
-.card img{width:100%;border-radius:10px;margin-bottom:10px}
-
-/* TESTIMONIANZE */
-.testimonial{
-background:white;
-padding:20px;
-border-left:5px solid #00c853;
-margin-bottom:15px;
-border-radius:8px;
-font-style:italic;
-}
-.testimonial span{display:block;font-weight:bold;margin-top:8px;font-style:normal}
-
-/* PREVENTIVO */
-.form-box{
-background:white;padding:25px;border-radius:12px;
-box-shadow:0 5px 20px rgba(0,0,0,0.1);
-max-width:500px;margin:auto;
-}
-input,button{
-width:100%;padding:12px;margin-top:10px;border-radius:6px;border:1px solid #ccc;
-font-size:16px;
-}
-button{
-background:#00c853;color:white;font-weight:bold;border:none;cursor:pointer;
+.hero-btn{
+margin-top:18px;background:#fff;color:#0f172a;padding:16px 32px;border-radius:40px;
+text-decoration:none;font-weight:900;font-size:1rem;
+box-shadow:0 10px 25px rgba(0,0,0,.3);
 }
 
-/* FLOAT BUTTONS */
-.float-btn{
-position:fixed;right:15px;padding:14px 18px;border-radius:50px;
-color:white;font-weight:bold;text-decoration:none;box-shadow:0 5px 10px rgba(0,0,0,.3);
+/* CONTENT */
+.container{max-width:700px;margin:auto;padding:20px}
+
+/* BENEFITS CARD */
+.card{
+background:#fff;border-radius:18px;padding:12px;margin-top:-40px;
+box-shadow:0 10px 25px rgba(0,0,0,.07);border:1px solid #eee;
 }
-.whatsapp{bottom:80px;background:#25d366;}
-.call{bottom:20px;background:#007bff;}
+.item{display:flex;gap:14px;padding:14px;border-bottom:1px solid #eee}
+.item:last-child{border:none}
+.icon{font-size:1.6rem}
+
+/* IMAGE BLOCK */
+.block-img{margin-top:30px;text-align:center}
+.block-img img{width:100%;border-radius:18px;box-shadow:0 10px 25px rgba(0,0,0,.12)}
+.block-img div{margin-top:8px;font-weight:700;color:#334155}
+
+/* REVIEWS */
+.reviews{margin-top:35px}
+.review-box{
+background:#fff;padding:16px;border-radius:14px;border:1px solid #e2e8f0;margin-bottom:12px;
+font-size:.95rem;color:#334155;line-height:1.45;
+}
+
+/* FAQ */
+.faq{margin-top:35px}
+.faq h2{text-align:center;font-size:1.4rem;font-weight:900;margin-bottom:15px}
+.faq-item{
+background:#fff;padding:14px;border-radius:12px;border:1px solid #e2e8f0;margin-bottom:10px;
+}
+.faq-q{font-weight:800;color:#0f172a;margin-bottom:5px}
+.faq-a{color:#475569;font-size:.95rem}
+
+/* TRUST */
+.trust{
+background:#e2e8f0;margin-top:30px;padding:18px;border-radius:16px;
+font-size:.95rem;color:#334155;line-height:1.5;
+}
+
+/* FOOTER */
+footer{text-align:center;font-size:.75rem;color:#64748b;padding:25px}
+
+/* STICKY BAR */
+.fixed-bar{
+position:fixed;bottom:15px;left:15px;right:15px;
+background:#0f172a;border-radius:50px;padding:10px;
+display:flex;gap:10px;z-index:9999;
+box-shadow:0 10px 30px rgba(0,0,0,.4);
+}
+.btn{
+flex:1;padding:15px;border-radius:40px;text-align:center;
+text-decoration:none;color:#fff;font-weight:900;font-size:.95rem;
+}
+.btn-call{background:rgba(255,255,255,.25)}
+.btn-wa{background:#25d366}
 </style>
 </head>
 
 <body>
 
-<!-- HERO -->
-<div class="hero">
-<h1>Installazione Termostato WiFi a Roma</h1>
-<p>Risparmio in bolletta fino al <b>30%</b> e controllo dal tuo smartphone</p>
-<a href="#preventivo" class="cta">Vai al Preventivo</a>
-</div>
+<header>DOMUSTECH • Termostato Smart Roma Sud</header>
 
-<!-- VANTAGGI -->
-<section>
-<h2>Perché installare un termostato smart?</h2>
-<div class="cards">
-<div class="card">
-<img src="installazione-shelly.jpg">
-<h3>Controllo da Smartphone</h3>
-<p>Gestisci il riscaldamento ovunque ti trovi.</p>
-</div>
-<div class="card">
-<img src="cablaggio-elettrico.jpg">
-<h3>Installazione Professionale</h3>
-<p>Installazione certificata e configurazione completa.</p>
-</div>
-<div class="card">
-<img src="configurazione-app.jpg">
-<h3>Riduzione Consumi</h3>
-<p>Ottimizza il riscaldamento e riduci gli sprechi.</p>
-</div>
+<!-- HERO CON IMMAGINE APP -->
+<section class="hero">
+<img src="app-control-night.png" alt="App Termostato Smart">
+<div class="hero-content">
+<div class="badge">Risparmio in bolletta fino al 30%</div>
+<h1>Termostato Smart WiFi<br>Controllo Remoto Casa</h1>
+<p>Accendi il riscaldamento prima di tornare a casa e spegnilo quando esci.</p>
+
+<a href="https://wa.me/393505223388?text=Info%20Termostato%20Smart" class="hero-btn">
+💬 Richiedi Info su WhatsApp
+</a>
 </div>
 </section>
 
-<!-- TESTIMONIANZE REALISTICHE -->
-<section>
-<h2>Cosa dicono i clienti</h2>
+<div class="container">
 
-<div class="testimonial">
-“Finalmente posso accendere il riscaldamento prima di tornare a casa. Installazione veloce e pulita.”
-<span>– Marco, Roma EUR</span>
+<!-- BENEFICI -->
+<div class="card">
+<div class="item"><div class="icon">⚡</div><div><b>Installazione Rapida</b><br>In meno di 1 ora senza rompere muri.</div></div>
+<div class="item"><div class="icon">📱</div><div><b>Controllo da Smartphone</b><br>Gestisci tutto ovunque ti trovi.</div></div>
+<div class="item"><div class="icon">📉</div><div><b>Risparmio Energetico</b><br>Riduci sprechi e bolletta automaticamente.</div></div>
 </div>
 
-<div class="testimonial">
-“Molto comodo controllare tutto dal telefono, soprattutto quando viaggio.”
-<span>– Giulia, Roma Sud</span>
+<!-- IMMAGINE IMPIANTO (INVERTITA) -->
+<div class="block-img">
+<img src="hero-smart-roma.jpg" alt="Termostato Smart installazione Roma">
+<div>Installazione professionale su impianti esistenti</div>
 </div>
 
-<div class="testimonial">
-“Tecnico puntuale e chiaro nella spiegazione. Consigliato.”
-<span>– Paolo, Roma Ostia</span>
+<!-- RECENSIONI TESTUALI -->
+<div class="reviews">
+<h2 style="text-align:center;font-size:1.4rem;font-weight:900;margin-bottom:15px">Cosa dicono i clienti</h2>
+
+<div class="review-box">“Tecnico molto disponibile, mi ha spiegato tutto e ora gestisco il riscaldamento dal telefono. Comodissimo.”</div>
+<div class="review-box">“Installazione veloce e pulita, niente muri rotti. Molto soddisfatto del servizio.”</div>
+<div class="review-box">“Finalmente posso spegnere il riscaldamento quando esco, prima lo dimenticavo sempre.”</div>
+
 </div>
 
-</section>
+<!-- FAQ -->
+<div class="faq">
+<h2>Domande Frequenti</h2>
 
-<!-- PREVENTIVO -->
-<section id="preventivo">
-<h2>Richiedi il Preventivo Gratuito</h2>
-<div class="form-box">
-<form action="mailto:tuamail@email.it" method="post" enctype="text/plain">
-<input type="text" name="Nome" placeholder="Nome e Cognome" required>
-<input type="tel" name="Telefono" placeholder="Telefono" required>
-<input type="email" name="Email" placeholder="Email">
-<button type="submit">Invia Preventivo</button>
-</form>
+<div class="faq-item">
+<div class="faq-q">Serve rompere muri?</div>
+<div class="faq-a">No, si sostituisce il termostato esistente usando i cavi già presenti.</div>
 </div>
-</section>
 
-<!-- FLOAT BUTTONS -->
-<a class="float-btn whatsapp" href="https://wa.me/393XXXXXXXXX">WhatsApp</a>
-<a class="float-btn call" href="tel:+393XXXXXXXXX">Chiama</a>
+<div class="faq-item">
+<div class="faq-q">È compatibile con la mia caldaia?</div>
+<div class="faq-a">Sì, funziona con la maggior parte delle caldaie a gas, pellet e centralizzate.</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-q">Se manca internet?</div>
+<div class="faq-a">Il termostato continua a funzionare anche manualmente.</div>
+</div>
+
+</div>
+
+<!-- TRUST -->
+<div class="trust">
+<b>Perché scegliere DomusTech</b><br>
+✔ Tecnico locale zona Roma Sud<br>
+✔ Configurazione App inclusa<br>
+✔ Supporto dopo l’installazione
+</div>
+
+</div>
+
+<footer>
+© 2026 DomusTech Roma Sud – Tecnico Smart Home
+</footer>
+
+<!-- STICKY BUTTONS -->
+<div class="fixed-bar">
+<a href="tel:+393505223388" class="btn btn-call">📞 Chiama</a>
+<a href="https://wa.me/393505223388?text=Info%20Termostato%20Smart" class="btn btn-wa">💬 WhatsApp</a>
+</div>
 
 </body>
 </html>
