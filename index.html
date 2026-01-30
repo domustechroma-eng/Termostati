@@ -20,6 +20,23 @@
     </script>
 
     <script>
+    function gtag_report_call_conversion(url) {
+      var callback = function () {
+        if (typeof(url) != 'undefined') {
+          window.location = url;
+        }
+      };
+      gtag('event', 'conversion', {
+          'send_to': 'AW-17909499498/h72nCI-o2e8bEOqM9dtC',
+          'value': 1.0,
+          'currency': 'EUR',
+          'event_callback': callback
+      });
+      return false;
+    }
+    </script>
+
+    <script>
     function gtag_report_wa_conversion(url) {
       var callback = function () {
         if (typeof(url) != 'undefined') {
@@ -56,12 +73,13 @@
         .block-img div{margin-top:8px;font-weight:700;color:#334155}
         .reviews{margin-top:35px}
         .review-box{background:#fff;padding:16px;border-radius:14px;border:1px solid #e2e8f0;margin-bottom:12px;font-size:.95rem;color:#334155;line-height:1.45}
+        .review-name { font-weight: 800; color: #0f172a; font-size: 0.85rem; display: block; margin-top: 8px; text-transform: uppercase; }
         .faq{margin-top:35px}
         .faq h2{text-align:center;font-size:1.4rem;font-weight:900;margin-bottom:15px}
         .faq-item{background:#fff;padding:14px;border-radius:12px;border:1px solid #e2e8f0;margin-bottom:10px}
         .faq-q{font-weight:800;color:#0f172a;margin-bottom:5px}
         .faq-a{color:#475569;font-size:.95rem}
-        .trust{background:#e2e8f0;margin-top:30px;padding:18px;border-radius:16px;font-size:.95rem;color:#334155;line-height:1.5}
+        .trust{background:#e2e8f0;margin-top:30px;padding:18px;border-radius:16px;font-size:.95rem;color:#334155;line-height:1.5; text-align: center; border: 2px dashed #0f172a;}
         footer{text-align:center;font-size:.75rem;color:#64748b;padding:25px}
         .fixed-bar{position:fixed;bottom:15px;left:15px;right:15px;background:#0f172a;border-radius:50px;padding:10px;display:flex;gap:10px;z-index:9999;box-shadow:0 10px 30px rgba(0,0,0,.4)}
         .btn{flex:1;padding:15px;border-radius:40px;text-align:center;text-decoration:none;color:#fff;font-weight:900;font-size:.95rem}
@@ -79,7 +97,7 @@
     <div class="hero-content">
         <div class="badge">Risparmio in bolletta fino al 30%</div>
         <h1>Termostato Smart WiFi<br>Controllo Remoto Casa</h1>
-        <p>Accendi il riscaldamento prima di tornare a casa e spegnilo quando esci.</p>
+        <p>Gestisci il clima da smartphone e risparmia sui costi di riscaldamento.</p>
 
         <a href="https://wa.me/393505223388?text=Info%20Termostato%20Smart" 
            onclick="return gtag_report_wa_conversion('https://wa.me/393505223388?text=Info%20Termostato%20Smart');" 
@@ -91,49 +109,61 @@
 
 <div class="container">
     <div class="card">
-        <div class="item"><div class="icon">⚡</div><div><b>Installazione Rapida</b><br>In meno di 1 ora senza rompere muri.</div></div>
-        <div class="item"><div class="icon">📱</div><div><b>Controllo da Smartphone</b><br>Gestisci tutto ovunque ti trovi.</div></div>
-        <div class="item"><div class="icon">📉</div><div><b>Risparmio Energetico</b><br>Riduci sprechi e bolletta automaticamente.</div></div>
+        <div class="item"><div class="icon">⚡</div><div><b>Installazione Professionale</b><br>Configurazione completa dell'App inclusa.</div></div>
+        <div class="item"><div class="icon">📱</div><div><b>Controllo Ovunque</b><br>Accendi e spegni il riscaldamento anche fuori casa.</div></div>
+        <div class="item"><div class="icon">📉</div><div><b>Addio Sprechi</b><br>Programmazione intelligente basata sulle tue abitudini.</div></div>
     </div>
 
     <div class="block-img">
         <img src="hero-smart-roma.jpg" alt="Termostato Smart installazione Roma">
-        <div>Installazione professionale su impianti esistenti</div>
+        <div>Installazione su impianti esistenti senza opere murarie</div>
     </div>
 
     <div class="reviews">
-        <h2 style="text-align:center;font-size:1.4rem;font-weight:900;margin-bottom:15px">Cosa dicono i clienti</h2>
-        <div class="review-box">“Tecnico molto disponibile, mi ha spiegato tutto e ora gestisco il riscaldamento dal telefono. Comodissimo.”</div>
-        <div class="review-box">“Installazione veloce e pulita, niente muri rotti. Molto soddisfatto del servizio.”</div>
-        <div class="review-box">“Finalmente posso spegnere il riscaldamento quando esco, prima lo dimenticavo sempre.”</div>
+        <h2 style="text-align:center;font-size:1.4rem;font-weight:900;margin-bottom:15px">Recensioni Verificate</h2>
+        
+        <div class="review-box">
+            "Volevo poter accendere il riscaldamento prima di tornare dall'ufficio. Il tecnico è stato rapidissimo nell'installazione e mi ha spiegato passo passo come usare l'app sul telefono. Molto professionale."
+            <span class="review-name">Roberto F. - Zona Garbatella</span>
+        </div>
+        
+        <div class="review-box">
+            "Finalmente ho risolto il problema delle bollette alte dimenticando il riscaldamento acceso. Installazione pulita e precisa, tecnico puntuale. Consigliato per chi vive a Roma Sud."
+            <span class="review-name">Elena M. - Laurentina</span>
+        </div>
     </div>
 
     <div class="faq">
         <h2>Domande Frequenti</h2>
         <div class="faq-item">
-            <div class="faq-q">Serve rompere muri?</div>
-            <div class="faq-a">No, si sostituisce il termostato esistente usando i cavi già presenti.</div>
+            <div class="faq-q">Quanto tempo serve per l'installazione?</div>
+            <div class="faq-a">Solitamente completiamo l'installazione e la configurazione dell'applicazione in meno di un'ora.</div>
         </div>
         <div class="faq-item">
-            <div class="faq-q">È compatibile con la mia caldaia?</div>
-            <div class="faq-a">Sì, funziona con la maggior parte delle caldaie a gas, pellet e centralizzate.</div>
+            <div class="faq-q">Funziona con tutte le caldaie?</div>
+            <div class="faq-a">È compatibile con la maggior parte degli impianti a gas, pellet e sistemi centralizzati con valvole termostatiche.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">Il prezzo è trasparente?</div>
+            <div class="faq-a">Sì, forniamo un preventivo chiaro prima dell'intervento. Nessun costo nascosto per la configurazione dell'App.</div>
         </div>
     </div>
 
     <div class="trust">
-        <b>Perché scegliere DomusTech</b><br>
-        ✔ Tecnico locale zona Roma Sud<br>
-        ✔ Configurazione App inclusa<br>
-        ✔ Supporto dopo l’installazione
+        <b>Preventivi Gratuiti via WhatsApp</b><br>
+        Inviaci una foto del tuo vecchio termostato per sapere subito se è compatibile e ricevere un preventivo senza impegno.
     </div>
 </div>
 
 <footer>
-    © 2026 DomusTech Roma Sud – Tecnico Smart Home
+    © 2026 DomusTech Roma Sud – Specialisti Smart Home<br>
+    Roma Sud | EUR | Ostia | Castelli Romani
 </footer>
 
 <div class="fixed-bar">
-    <a href="tel:+393505223388" class="btn btn-call">📞 Chiama</a>
+    <a href="tel:+393505223388" 
+       onclick="return gtag_report_call_conversion('tel:+393505223388');" 
+       class="btn btn-call">📞 Chiama</a>
     
     <a href="https://wa.me/393505223388?text=Info%20Termostato%20Smart" 
        onclick="return gtag_report_wa_conversion('https://wa.me/393505223388?text=Info%20Termostato%20Smart');" 
